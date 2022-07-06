@@ -26,7 +26,8 @@
             <div class="col-12">
                 <div class="card">
                     @if (session()->has('message'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
                             {{ session()->get('message') }}
                         </div>
                     @endif
@@ -101,8 +102,13 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $forms->links() }}
-                        {{-- {{$form->links()}} --}}
+                        <nav aria-label="Pagination">
+                            <hr class="my-0" />
+                            <ul class="pagination justify-content-center my-4">
+                                {{$forms->links()}}
+                            </ul>
+                        </nav>
+                        {{-- {{$forms->links()}} --}}
 
                     </div>
                     <!-- /.card-body -->

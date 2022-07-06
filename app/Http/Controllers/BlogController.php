@@ -14,7 +14,7 @@ class BlogController extends Controller
             'dis' => 'required',
             'status' => 'required',
             'category_id' => 'required',
-            'image' => 'nullable',
+            'image' => 'nullable|mimes:jpeg,bmp,png,jpg',
 
 
         ]);

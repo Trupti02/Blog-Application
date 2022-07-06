@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Description</label>
-                        <textarea id="body" name="dis" rows="4" cols="50" class="form-control" value="{{ $form->dis }}">value="{{ $form->dis }}"</textarea>
+                        <textarea id="body" name="dis" rows="4" cols="50" class="form-control" value="{{ $form->dis }}">{{ $form->dis }}</textarea>
 
 
 
@@ -69,6 +69,16 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="image"> Image</label>
+                        <input type="file" class="form-control" name="image" id="image"
+                            placeholder="Upload_image" value="{{ old('image',$form->image) }}">
+
+
+
+                        <img src="{{ asset('uploads/' . $form->image) }}" width="50px" height="50px" />
+                    </div>
+
+                    <div class="form-group">
                         <label>Status</label>
                         <select name="status"class="form-control">
                             <option value="" class="option_colour">Select Status</option>
@@ -80,25 +90,22 @@
                         </select>
                     </div>
                     <!-- /.card-body -->
-                    <div class="form-group">
-                        <label for="image"> Image</label>
-                        <input type="file" class="form-control" name="image" id="upload_image"
-                            placeholder="Upload_image" value="{{ old('upload_image') }}">
-                    </div>
+
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Update</button>
                         <a href="{{ route('blog.index') }}"><button type="button" class="btn btn-info">Back </button></a>
                     </div>
                 </div>
+
             </form>
         </div>
     </div>
     <script>
         ClassicEditor
-        .create(document.querySelector('#body'))
-        .catch(error => {
-        console.error(error);
-        });
-        </script>
+            .create(document.querySelector('#body'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endsection

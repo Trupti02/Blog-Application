@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
+Route::get('/',[FrontController::class,'index'])->name('welcome');
+Route::get('show/{id}',[BlogController::class,'show'])->name('blog.show');
 
 
 require __DIR__.'/auth.php';
@@ -31,8 +32,8 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
     Route::view('/form','form')->name('form');
-    Route::get('/',[FrontController::class,'index'])->name('welcome');
-    Route::get('show/{id}',[BlogController::class,'show'])->name('blog.show');
+
+
 
     Route::get('blog/create',[BlogController::class,'create'])->name('blog.create');
     Route::get('update/{id}',[BlogController::class,'update'])->name('blog.simple');

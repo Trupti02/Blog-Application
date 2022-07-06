@@ -56,7 +56,7 @@
 
                                         <td>
 
-                                            @if ($category->status == 1)
+                                        @if ($category->status == 1)
                                             <spam class="badge badge-primary">Active</spam>
                                         @else
                                             <spam class="badge badge-danger">Inactive</spam>
@@ -71,7 +71,13 @@
                             </tbody>
 
                         </table>
-                        {{ $categories->links() }}
+                        {{-- {{ $categories->links() }} --}}
+                        <nav aria-label="Pagination">
+                            <hr class="my-0" />
+                            <ul class="pagination justify-content-center my-4">
+                                {{$categories->links()}}
+                            </ul>
+                        </nav>
 
 
                     </div>
