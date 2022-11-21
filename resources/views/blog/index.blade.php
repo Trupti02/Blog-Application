@@ -50,7 +50,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap">
+                        <table class="table table-hover text-nowrap" id="table_id">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -69,7 +69,7 @@
                                     <tr>
                                         <td>{{ $form->id }}</td>
                                         <td>{{ $form->tittle }}</td>
-                                        <td>{!!Str::words($form->dis,10, '.....')!!}</td>
+                                        <td>{!! Str::words($form->dis, 10, '.....') !!}</td>
                                         <td>{{ $form->category->name }}</td>
 
 
@@ -77,7 +77,7 @@
                                             @if (empty($form->image))
                                                 <img src="{{ asset('defaultblog.png') }}" width="100px" height="100px" />
                                             @else
-                                                <img src="{{ asset('uploads/'. $form->image) }}" width="100px"
+                                                <img src="{{ asset('uploads/' . $form->image) }}" width="100px"
                                                     height="100px" />
                                             @endif
                                         </td>
@@ -105,7 +105,7 @@
                         <nav aria-label="Pagination">
                             <hr class="my-0" />
                             <ul class="pagination justify-content-center my-4">
-                                {{$forms->links()}}
+                                {{ $forms->links() }}
                             </ul>
                         </nav>
                         {{-- {{$forms->links()}} --}}
@@ -117,11 +117,29 @@
             </div>
         </div>
     </div>
+    {{-- <script type="text/javascript">
+    $("document").ready(function()
+    {
+        setTimeout(function() => {
+            $("div.alert").remove();
+
+        }, 3000);
+    });
+
+
+
+    </script> --}}
     <script>
         ClassicEditor
-        .create(document.querySelector('#body'))
-        .catch(error => {
-        console.error(error);
+            .create(document.querySelector('#body'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#table_id').DataTable();
         });
-        </script>
+    </script>
 @endsection

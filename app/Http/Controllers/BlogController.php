@@ -82,7 +82,7 @@ class BlogController extends Controller
     public function delete($id){
         $form = Blog::find($id);
         $form->delete();
-        return redirect()->route('blog.index')->with('message', 'Delete Succesfully!');
+        return redirect()->route('blog.index')->with('message', 'Delete Succesfully!','alert-danger');
 
 
     }
